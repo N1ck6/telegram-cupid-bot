@@ -23,8 +23,8 @@ logger = logging.getLogger(__name__)
 
 
 def sanitize(user_input):  # Remove SQL-injection
-    sanitized = re.sub(r"^A-Za-z0-9_", "", user_input)
-    return sanitized.strip().split()[0]
+    sanitized = re.sub(r"[^A-Za-z0-9_]", "", user_input)
+    return sanitized
 
 
 async def check_for_user(username):  # Check if user exists
